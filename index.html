@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload and Result</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .upload-box {
+        background-color: #fff;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: all 0.5s ease;
+      }
+      .result-box {
+        background-color: #333;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: all 0.5s ease;
+        transform: translateY(-100%);
+      }
+      .upload-box img {
+        max-width: 100%;
+        max-height: 300px;
+      }
+      .parallax {
+        background-image: url('https://picsum.photos/id/1/2000/1200');
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .upload-box input[type="file"] {
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .result-box p {
+        color: #fff;
+        font-size: 24px;
+      }
+      .show-result .result-box {
+        transform: translateY(0%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="upload-box">
+      <h1>Upload your picture</h1>
+      <form>
+        <input type="file" name="file" id="file" accept="image/*" />
+        <br /><br />
+        <input type="submit" value="Upload" />
+      </form>
+    </div>
+    <div class="result-box">
+      <h1>Result</h1>
+      <p>Your uploaded image:</p>
+      <img src="" alt="uploaded image" id="uploaded-image" />
+    </div>
+    <div class="parallax"></div>
+    <script>
+      const form = document.querySelector("form");
+      const uploadedImage = document.querySelector("#uploaded-image");
+      const uploadBox = document.querySelector(".upload-box");
+      const resultBox = document.querySelector(".result-box");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const file = event.target.file.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          uploadedImage.src = reader.result;
+          uploadBox.classList.remove("show-upload");
+          resultBox.classList.add("show-result");
+        };
+      });
+    </script>
+  </body>
+</html>
