@@ -1,0 +1,21 @@
+All browser targets in the browserslist configuration have supported ES module.
+Therefore we don't build two separate bundles for differential loading.
+
+
+ DONE  Compiled successfully in 3717ms2:15:13 AM
+
+Webpack Bundle Analyzer saved report to C:\Users\Moeez\OneDrive\Documents\Git\Team-Alpha-Cancer-System\Alpha\dist\report.html
+  File                                 Size               Gzipped
+
+  dist\js\chunk-vendors.a7b50411.js    96.55 KiB          36.24 KiB
+  dist\js\app.5d28e187.js              5.35 KiB           2.54 KiB
+  dist\js\533.ed593e43.js              2.21 KiB           1.14 KiB
+  dist\css\app.57573483.css            3.96 KiB           1.28 KiB
+  dist\css\533.781edd0a.css            1.46 KiB           0.63 KiB
+
+  Images and other types of assets omitted.
+  Build at: 2023-05-12T21:15:13.503Z - Hash: 98450e695d4ceacc - Time: 3717ms
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+       
